@@ -1,0 +1,33 @@
+public ArrayList extends Module {
+
+  public ArrayList() {
+    super("ArrayList", Category.CLIENT);
+  }
+  
+  @Override
+  public void onEnable() {
+    MinecraftForge.EVENT_BUS.register(this);
+  }
+  
+  @Override
+  public void onDisable() {
+    MinecraftForge.EVENT_BUS.unregister(this);
+  }
+  
+  @SubscribeEvent
+  public void onRenderGameOverlay(RenderGameOverlay event) {
+    if(mc.player != null && mc.world != null) {
+      if(event.getType() == RenderGameOverlay.ElementType.ALL) {
+        int count = 0;
+        
+        for(Module m : ModuleManager.getModules() {
+          if(m.isToggled()) {
+            mc.fontRenderer.drawStringWithShadow(m.getName, 1, currY + 10, Color.WHITE);
+            currY += mc.fontRenderer.FONT_HEIGHT;
+            count++;
+          }
+        }
+      }
+    }
+  }
+}
