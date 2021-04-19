@@ -3,10 +3,10 @@ public Sprint extends Module {
   //OMG SO MUCH CODE :0
 
   public void onEnable() {
-    mc.player.capabilities.setSprinting = true;
+    mc.player.setSprinting(true);
   }
   
   public void onDisable() {
-    mc.player.capabilities.setSprinting = false;
+    mc.player.setSprinting(false);
   }
 }
