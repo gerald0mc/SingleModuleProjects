@@ -1,0 +1,18 @@
+public FullBright extends Module {
+  private float old;
+
+  public FullBright() {
+    super("FullBright", Category.RENDER);
+  }
+  
+  @Override
+  public void onEnable() {
+    old - mc.gameSettings.gammaSetting;
+    mc.gameSettings.gammaSetting = 100;
+  }
+  
+  @Override
+  public void onDisable() {
+    mc.gameSettings.gammaSetting = old;
+  }
+}
