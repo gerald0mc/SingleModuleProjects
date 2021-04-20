@@ -1,0 +1,12 @@
+public AutoWalk extends Module {
+  private final Minecraft mc = Minecraft.getMinecraft();
+
+  public AutoWalk() {
+    super("AutoWalk", Category.MOVEMENT);
+  }
+  
+  @Override
+  public void onUpdate() {
+    KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), true);
+  }
+}
