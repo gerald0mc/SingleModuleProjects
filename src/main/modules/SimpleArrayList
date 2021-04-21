@@ -23,8 +23,11 @@ public ArrayList extends Module {
         
         for(Module m : ModuleManager.getModules() {
           if(m.isToggled()) {
-            mc.fontRenderer.drawStringWithShadow(m.getName, 1, currY + 10, Color.WHITE);
+            //Idk if this drawRect would work im kinda retarded and dont know how to use it :/
+            Gui.drawRect( 1, 1, currX + 2, currY + 10, 0x696969);
+            mc.fontRenderer.drawStringWithShadow(m.getName, 4, currY + 10, Color.WHITE);
             currY += mc.fontRenderer.FONT_HEIGHT;
+            currX += mc.fontRenderer.FONT_WIDTH;
             count++;
           }
         }
