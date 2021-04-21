@@ -17,19 +17,16 @@ public ArrayList extends Module {
   
   @SubscribeEvent
   public void onRenderGameOverlay(RenderGameOverlay event) {
-    if(mc.player != null && mc.world != null) {
-      if(event.getType() == RenderGameOverlay.ElementType.ALL) {
-        int count = 0;
-        
-        for(Module m : ModuleManager.getModules() {
-          if(m.isToggled()) {
-            //Idk if this drawRect would work im kinda retarded and dont know how to use it :/
-            Gui.drawRect( 1, 1, currX + 2, currY + 10, 0x696969);
-            mc.fontRenderer.drawStringWithShadow(m.getName, 4, currY + 10, Color.WHITE);
-            currY += mc.fontRenderer.FONT_HEIGHT;
-            currX += mc.fontRenderer.getStringWidth();
-            count++;
-          }
+    if(event.getType() == RenderGameOverlay.TEXT) {
+      int count = 0;
+      
+      for(Module m : ModuleManager.getModules()) {
+        if(m.isToggled()) {
+          Gui.drawRect( 1, 1, currX + 2, currY + 10, 0x696969);
+          mc.fontRenderer.drawStringWithShadow(m.getName, 4, currY + 10, Color.WHITE);
+          currY += mc.fontRenderer.FONT_HEIGHT;
+          currX += mc.fontRenderer.getStringWidth();
+          count++;
         }
       }
     }
