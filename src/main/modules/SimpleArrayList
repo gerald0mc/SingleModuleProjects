@@ -27,7 +27,7 @@ public ArrayList extends Module {
             Gui.drawRect( 1, 1, currX + 2, currY + 10, 0x696969);
             mc.fontRenderer.drawStringWithShadow(m.getName, 4, currY + 10, Color.WHITE);
             currY += mc.fontRenderer.FONT_HEIGHT;
-            currX += mc.fontRenderer.FONT_WIDTH;
+            currX += mc.fontRenderer.getStringWidth();
             count++;
           }
         }
