@@ -1,4 +1,5 @@
 public ArrayList extends Module {
+  private final Minecraft mc = Minecraft.getMinecraft();
 
   public ArrayList() {
     super("ArrayList", Category.CLIENT);
