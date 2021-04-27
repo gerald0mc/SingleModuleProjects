@@ -1,34 +1,32 @@
-public ArrayList extends Module {
-  private final Minecraft mc = Minecraft.getMinecraft();
-
-  public ArrayList() {
-    super("ArrayList", Category.CLIENT);
-  }
-  
-  @Override
-  public void onEnable() {
-    MinecraftForge.EVENT_BUS.register(this);
-  }
-  
-  @Override
-  public void onDisable() {
-    MinecraftForge.EVENT_BUS.unregister(this);
-  }
-  
-  @SubscribeEvent
-  public void onRenderGameOverlay(RenderGameOverlay event) {
-    if(event.getType() == RenderGameOverlay.TEXT) {
-      int count = 0;
-      
-      for(Module m : ModuleManager.getModules()) {
-        if(m.isToggled()) {
-          Gui.drawRect( 1, 1, currX + 2, currY + 10, 0x696969);
-          mc.fontRenderer.drawStringWithShadow(m.getName, 4, currY + 10, Color.WHITE);
-          currY += mc.fontRenderer.FONT_HEIGHT;
-          currX += mc.fontRenderer.getStringWidth();
-          count++;
-        }
-      }
+public class TestArrayList extends Module {
+    public TestArrayList() {
+        super("TestArrayList", Category.HUD, "Test array list");
     }
-  }
+
+    @Override
+    public void onEnable() {
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    @Override
+    public void onDisable() {
+        MinecraftForge.EVENT_BUS.unregister(this);
+    }
+
+    @SubscribeEvent
+    public void onRenderGameOverlay(RenderGameOverlayEvent event) {
+        if(event.getType() == RenderGameOverlayEvent.ElementType.ALL) {
+            int color = new Color(255, 255, 255, 255).getRGB();
+            int currY = mc.fontRenderer.FONT_HEIGHT + 2;
+            int count = 0;
+
+            for(Module m : ModuleManager.getModules()) {
+                if(m.isToggled()) {
+                    mc.fontRenderer.drawStringWithShadow(m.getName(), 4, currY + 10, color);
+                    currY += mc.fontRenderer.FONT_HEIGHT;
+                    count++;
+                }
+            }
+        }
+    }
 }
