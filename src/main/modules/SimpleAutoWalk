@@ -6,7 +6,12 @@ public AutoWalk extends Module {
   }
   
   @Override
-  public void onUpdate() {
+  public void onEnable() {
     KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), true);
+  }
+  
+  @Override
+  public void onDisable() {
+    KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), false);
   }
 }
