@@ -1,0 +1,12 @@
+public AutoSuicide extends Module {
+
+  public AutoSuicide() {
+    super("AutoSuicide", Category.MISC, "Automatically kills you.");
+  }
+  
+  @Override
+  public void onEnable() {
+    mc.player.sendChatMessage("/kill");
+    toggle();
+  }
+}
