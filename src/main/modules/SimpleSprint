@@ -1,4 +1,8 @@
 public Sprint extends Module {
+  public Sprint() {
+    super("Sprint", Category.MOVEMENT, "Automatically starts sprinting.");
+  }
+
   @Override
   public void onEnable() {
     mc.player.setSprinting(true);
