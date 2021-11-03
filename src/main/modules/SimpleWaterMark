@@ -1,15 +1,12 @@
-public WaterMark extends Module {
-
-  public WaterMark() {
-    super("WaterMark", Category.CLIENT);
-  }
-  
-  @Override
-  public void onRenderGameOverlay(RenderGameOverlay event) {
-    if(mc.world != null && mc.player != null) {
-      if(event.getType() == RenderGameOverlay.ElementType.ALL) {
-        mc.fontRenderer.drawStringWithShadow("Client Name", 1, 1, Color.WHITE);
-      }
+public class Watermark extends Module {
+    public Watermark() {
+        super("Watermark", Category.CLIENT, "Renders client watermark.");
     }
-  }
+
+    @SubscribeEvent
+    public void onRender(RenderGameOverlayEvent.Text event) {
+        if(mc.world != null && mc.player != null) {
+            mc.fontRenderer.drawStringWithShadow(Gerald.CLIENT_NAME, 1, 1, -1);
+        }
+    }
 }
