@@ -2,10 +2,12 @@ public Sprint extends Module {
 
   //OMG SO MUCH CODE :0
 
+  @Override
   public void onEnable() {
     mc.player.setSprinting(true);
   }
   
+  @Override
   public void onDisable() {
     mc.player.setSprinting(false);
   }
